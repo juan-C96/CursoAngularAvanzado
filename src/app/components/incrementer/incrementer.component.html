@@ -1,0 +1,23 @@
+<div class="input-group">
+    <span class="input-group-btn">
+        <button class="btn" [ngClass]="btnClass" type="button" (click)="changeValue( -5 )" [disabled]="value <= 0">
+            <i class="fa fa-minus"></i>
+        </button>
+    </span>
+
+    <input 
+        type="number" 
+        class="form-control" 
+        [ngClass]="{'is-invalid': value > 100 || value < 0}"
+        placeholder="Percent" 
+        min="0"
+        max="100"
+        (ngModelChange)="onChange($event)"
+        [(ngModel)]="value">
+
+    <span class="input-group-btn">
+        <button class="btn" [ngClass]="btnClass" type="button" (click)="changeValue( 5 )" [disabled]="value >= 100">
+            <i class="fa fa-plus"></i>
+        </button>
+    </span>
+</div>
